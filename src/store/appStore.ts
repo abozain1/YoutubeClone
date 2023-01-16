@@ -1,21 +1,26 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface CounterState {
-  data: object[]
+  data: object[];
+  nextPageToken: string;
 }
 
 const initialState: CounterState = {
   data: [],
-}
+  nextPageToken: "",
+};
 
 export const youtubeSlice = createSlice({
-  name: 'youtube',
+  name: "youtube",
   initialState,
   reducers: {
-   
+    loadData: (state, action: PayloadAction<{items:[],nextPageToken:string}>) => {
+      state.data = [...state.data, ...action.payload.items];
+      state.nextPageToken=action.payload.nextPageToken
+    },
   },
-})
+});
 
-export const {  } = youtubeSlice.actions
+export const { loadData } = youtubeSlice.actions;
 
-export default youtubeSlice.reducer
+export default youtubeSlice.reducer;
