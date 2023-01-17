@@ -10,14 +10,14 @@ interface props {
 }
 
 function ListItem({ snippet, itemId, kind }: props) {
-  console.log("🚀 ~ file: listItem.tsx:11 ~ ListItem ~ kind", kind)
+  console.log("🚀 ~ file: listItem.tsx:11 ~ ListItem ~ kind", kind);
   switch (kind) {
     case "youtube#video":
-      return <VideoComp snippet={snippet} videoId={itemId} />;
+      return <VideoComp snippet={snippet} itemId={itemId} />;
     case "youtube#playlist":
-      return <PlayListComp  />;
+      return <PlayListComp snippet={snippet} itemId={itemId} />;
     case "youtube#channel":
-      return <ChannelComp  />;
+      return <ChannelComp snippet={snippet} itemId={itemId} />;
   }
   return null;
 }

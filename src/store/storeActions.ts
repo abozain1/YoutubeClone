@@ -10,7 +10,7 @@ export function fetchData({ searchQ, isMore }: paramters) {
   store.dispatch(changeLoadingState(true));
   axios
     .get(
-      `https://youtube.googleapis.com/youtube/v3/search?maxResults=5&q=${
+      `https://youtube.googleapis.com/youtube/v3/search?maxResults=5&type=playlist&q=${
         searchQ || searchState
       }&${
         isMore ? `&pageToken=${store.getState().youtube.nextPageToken}` : ""
