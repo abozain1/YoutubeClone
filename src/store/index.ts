@@ -3,7 +3,7 @@ import youtubeReducer  from './appStore'
 
 export const store = configureStore({
   reducer: {
-    counter: youtubeReducer,
+    youtube: youtubeReducer,
   },
 })
 
