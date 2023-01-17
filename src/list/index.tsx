@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
+import { fetchData } from "../store/storeActions";
 import ListItem from "./listItem";
 
 function List() {
   const items = useSelector((state: RootState) => state.youtube.items);
-  console.log("🚀 ~ file: index.tsx:7 ~ List ~ items", items)
+  const isMoreLoading = useSelector(
+    (state: RootState) => state.youtube.isMoreLoading
+  );
   return (
     <div>
       {items.map((ele: any) => (
@@ -14,6 +17,16 @@ function List() {
           snippet={ele.snippet}
         />
       ))}
+      {items.length > 0 &&
+        (isMoreLoading ? (
+          <p>loading</p>
+        ) : (
+          <button 
+            onClick={() => fetchData({ searchQ: undefined, isMore: true })}
+          >
+            Show More
+          </button>
+        ))}
     </div>
   );
 }

@@ -7,7 +7,7 @@ interface paramters {
 }
 let searchState = "";
 export function fetchData({ searchQ, isMore }: paramters) {
-  store.dispatch(changeLoadingState(true));
+  store.dispatch(changeLoadingState({ isMore, value: true }));
   axios
     .get(
       `https://youtube.googleapis.com/youtube/v3/search?maxResults=5&type=playlist&q=${
@@ -21,5 +21,7 @@ export function fetchData({ searchQ, isMore }: paramters) {
       searchState = searchQ ? searchQ : searchState;
     })
     .catch((e) => console.log(e))
-    .finally(() => store.dispatch(changeLoadingState(false)));
+    .finally(() =>
+      store.dispatch(changeLoadingState({ isMore, value: false }))
+    );
 }

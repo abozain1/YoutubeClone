@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface dataState {
   loading: boolean;
+  isMoreLoading: boolean;
   nextPageToken: string;
 
   pageInfo: {
@@ -11,7 +12,8 @@ export interface dataState {
 }
 
 const initialState: dataState = {
-  loading:false,
+  loading: false,
+  isMoreLoading: false,
   nextPageToken: "",
 
   pageInfo: {
@@ -34,13 +36,16 @@ export const youtubeSlice = createSlice({
       state.pageInfo = action.payload.pageInfo;
       state.nextPageToken = action.payload.nextPageToken;
     },
-    changeLoadingState: (state, action: PayloadAction<boolean>) => {
-      state.loading = action.payload;
-     
+    changeLoadingState: (
+      state,
+      action: PayloadAction<{ value: boolean; isMore: boolean }>
+    ) => {
+      const { value, isMore } = action.payload;
+      isMore ? (state.isMoreLoading = value) : (state.loading = value);
     },
   },
 });
 
-export const { loadData, loadMore,changeLoadingState } = youtubeSlice.actions;
+export const { loadData, loadMore, changeLoadingState } = youtubeSlice.actions;
 
 export default youtubeSlice.reducer;
