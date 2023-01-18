@@ -1,0 +1,56 @@
+.mainCont {
+  width: 80%;
+  margin: auto;
+  .videoCont {
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 20rem auto;
+    margin-top: 1rem;
+    .roundImg {
+      border-radius: 50%;
+      width: 15rem;
+    }
+    .imgContainer {
+      position: relative;
+      width: fit-content;
+      .img {
+        width: 19rem;
+      }
+      .modal {
+        position: absolute;
+        width: 8rem;
+        height: 14rem;
+        background-color: rgba(0, 0, 0, 0.6);
+        right: 0;
+        top: 0;
+        text-align: center;
+
+        svg {
+          font-size: 2rem;
+          color: white;
+          margin-top: 50%;
+        }
+      }
+    }
+    .title {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    .description {
+      font-size: 1rem;
+      color: #928e8d;
+    }
+    .channel {
+      font-size: 1rem;
+      color: #8f989f;
+    }
+  }
+  .moreBtn {
+    background-color: red;
+    color: white;
+    padding: 10px 3rem;
+    cursor: pointer;
+    border: none;
+    margin: 2rem auto;
+  }
+}

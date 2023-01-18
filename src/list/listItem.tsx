@@ -8,17 +8,28 @@ interface props {
   itemId: string;
   snippet: snippet;
 }
-
-function ListItem({ snippet, itemId, kind }: props) {
-  console.log("🚀 ~ file: listItem.tsx:11 ~ ListItem ~ kind", kind);
+function getType(kind: string) {
   switch (kind) {
     case "youtube#video":
-      return <VideoComp snippet={snippet} itemId={itemId} />;
+      return 1;
     case "youtube#playlist":
-      return <PlayListComp snippet={snippet} itemId={itemId} />;
+      return 2;
     case "youtube#channel":
-      return <ChannelComp snippet={snippet} itemId={itemId} />;
+      return 3;
+    default:
+      return 0;
   }
-  return null;
+}
+function ListItem({ snippet, itemId, kind }: props) {
+  const typeId = getType(kind);
+  // switch (kind) {
+  //   case "youtube#video":
+  //     return <VideoComp snippet={snippet} typeId={1} />;
+  //   case "youtube#playlist":
+  //     return <VideoComp snippet={snippet} typeId={2} />;
+  //   case "youtube#channel":
+  //     return <VideoComp snippet={snippet} typeId={3} />;
+  // }
+  return <VideoComp snippet={snippet} typeId={typeId} />;
 }
 export default ListItem;

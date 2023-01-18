@@ -2,14 +2,15 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import { fetchData } from "../store/storeActions";
 import ListItem from "./listItem";
-
+import cls from "./list.module.scss";
+import Loading from "../components/loading/loading";
 function List() {
   const items = useSelector((state: RootState) => state.youtube.items);
   const isMoreLoading = useSelector(
     (state: RootState) => state.youtube.isMoreLoading
   );
   return (
-    <div>
+    <div className={cls.mainCont}>
       {items.map((ele: any) => (
         <ListItem
           kind={ele.id.kind}
@@ -19,9 +20,10 @@ function List() {
       ))}
       {items.length > 0 &&
         (isMoreLoading ? (
-          <p>loading</p>
+          <Loading />
         ) : (
-          <button 
+          <button
+            className={cls.moreBtn}
             onClick={() => fetchData({ searchQ: undefined, isMore: true })}
           >
             Show More

@@ -6,13 +6,14 @@ import axios from "axios";
 import { fetchData } from "./store/storeActions";
 import Header from "./header/header";
 import List from "./list";
+import Loading from "./components/loading/loading";
 
 function App() {
   const loading = useSelector((state: RootState) => state.youtube.loading);
   return (
     <div className="App">
       <Header />
-      {loading ? "loading" : <List />}
+      {loading ? <Loading /> : <List />}
     </div>
   );
 }

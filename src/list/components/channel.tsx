@@ -1,4 +1,6 @@
+import moment from "moment";
 import { snippet } from "../../components/interfaces";
+import cls from "../list.module.scss";
 
 interface props {
   itemId: string;
@@ -6,11 +8,16 @@ interface props {
 }
 export default function ChannelComp({ snippet, itemId }: props) {
   return (
+    <div className={cls.videoCont}>
+    <img className={cls.roundImg} src={snippet.thumbnails.high.url} />
     <div>
-      <p>{snippet.channelTitle}</p>
-      <p>{snippet.description}</p>
-      <p>{snippet.publishedAt}</p>
-      <img width='100rem' src={snippet.thumbnails.high.url} />
+      <p className={cls.title}>{snippet.title}</p>
+      <p className={cls.channel}>
+        {snippet.channelTitle}{" "}
+        {moment(snippet.publishedAt, "YYYYMMDD").fromNow()}
+      </p>
+      <p className={cls.description}>{snippet.description}</p>
     </div>
+  </div>
   );
 }
