@@ -20,11 +20,11 @@ function List() {
       ))}
       {items.length > 0 &&
         (isMoreLoading ? (
-          <Loading />
+          <Loading isMain={false} />
         ) : (
           <button
             className={cls.moreBtn}
-            onClick={() => fetchData({ searchQ: undefined, isMore: true })}
+            onClick={() => fetchData({ isMore: true })}
           >
             Show More
           </button>

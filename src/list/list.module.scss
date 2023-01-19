@@ -1,25 +1,28 @@
 .mainCont {
-  width: 80%;
+  width: 85%;
   margin: auto;
   .videoCont {
     gap: 10px;
     display: grid;
-    grid-template-columns: 20rem auto;
+    grid-template-columns: 16rem auto;
     margin-top: 1rem;
-    .roundImg {
-      border-radius: 50%;
-      width: 15rem;
-    }
     .imgContainer {
       position: relative;
-      width: fit-content;
       .img {
-        width: 19rem;
+        width: 16rem;
+        display: block;
+        margin: auto;
+      }
+      .roundImg {
+        display: block;
+        border-radius: 50%;
+        width: 11rem;
+        margin: auto;
       }
       .modal {
         position: absolute;
-        width: 8rem;
-        height: 14rem;
+        width: 40%;
+        height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
         right: 0;
         top: 0;
@@ -33,8 +36,8 @@
       }
     }
     .title {
-      font-size: 1.5rem;
-      font-weight: 400;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
     .description {
       font-size: 1rem;
@@ -43,14 +46,54 @@
     .channel {
       font-size: 1rem;
       color: #8f989f;
+      margin: 8px 0;
     }
   }
   .moreBtn {
     background-color: red;
     color: white;
     padding: 10px 3rem;
+    display: block;
     cursor: pointer;
     border: none;
+    border-radius: 5px;
     margin: 2rem auto;
+  }
+}
+@media (max-width: 600px) {
+  .mainCont {
+    width: 100%;
+
+    .videoCont {
+      grid-template-columns: 12rem auto;
+      padding: 0 10px;
+      .imgContainer {
+        position: relative;
+        .img {
+          width: 12rem;
+        }
+        .roundImg {
+          width: 8rem;
+        }
+
+        .modal {
+          svg {
+            font-size: 1.3rem;
+          }
+        }
+      }
+      .title {
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .description {
+        display: none;
+      }
+      .channel {
+        font-size: 0.7rem;
+
+        margin: 8px 0;
+      }
+    }
   }
 }

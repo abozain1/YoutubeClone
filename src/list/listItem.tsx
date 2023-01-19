@@ -1,6 +1,4 @@
 import { snippet } from "../components/interfaces";
-import ChannelComp from "./components/channel";
-import PlayListComp from "./components/playList";
 import VideoComp from "./components/video";
 
 interface props {
@@ -22,14 +20,7 @@ function getType(kind: string) {
 }
 function ListItem({ snippet, itemId, kind }: props) {
   const typeId = getType(kind);
-  // switch (kind) {
-  //   case "youtube#video":
-  //     return <VideoComp snippet={snippet} typeId={1} />;
-  //   case "youtube#playlist":
-  //     return <VideoComp snippet={snippet} typeId={2} />;
-  //   case "youtube#channel":
-  //     return <VideoComp snippet={snippet} typeId={3} />;
-  // }
+ 
   return <VideoComp snippet={snippet} typeId={typeId} />;
 }
 export default ListItem;

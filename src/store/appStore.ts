@@ -4,6 +4,7 @@ export interface dataState {
   loading: boolean;
   isMoreLoading: boolean;
   nextPageToken: string;
+  searchParam: string;
 
   pageInfo: {
     totalResults: number;
@@ -15,7 +16,7 @@ const initialState: dataState = {
   loading: false,
   isMoreLoading: false,
   nextPageToken: "",
-
+  searchParam: "",
   pageInfo: {
     totalResults: 0,
   },
@@ -43,9 +44,12 @@ export const youtubeSlice = createSlice({
       const { value, isMore } = action.payload;
       isMore ? (state.isMoreLoading = value) : (state.loading = value);
     },
+    changeSearchParam: (state, action: PayloadAction<string>) => {
+      state.searchParam = action.payload;
+    },
   },
 });
 
-export const { loadData, loadMore, changeLoadingState } = youtubeSlice.actions;
+export const { loadData, loadMore, changeLoadingState ,changeSearchParam} = youtubeSlice.actions;
 
 export default youtubeSlice.reducer;
