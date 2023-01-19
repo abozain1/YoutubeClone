@@ -10,4 +10,5 @@
 
 - did not fetch more details for every type of data { video , playList, channel } for i will need to call multiple APIs for every item and my plan has a limited number of requests per day
 
+- removed .env file from gitIgnore for the test team 
 

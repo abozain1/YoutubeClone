@@ -3,7 +3,6 @@ import VideoComp from "./components/video";
 
 interface props {
   kind: string;
-  itemId: string;
   snippet: snippet;
 }
 function getType(kind: string) {
@@ -18,7 +17,7 @@ function getType(kind: string) {
       return 0;
   }
 }
-function ListItem({ snippet, itemId, kind }: props) {
+function ListItem({ snippet, kind }: props) {
   const typeId = getType(kind);
  
   return <VideoComp snippet={snippet} typeId={typeId} />;

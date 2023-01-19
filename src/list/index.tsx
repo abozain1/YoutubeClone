@@ -14,7 +14,6 @@ function List() {
       {items.map((ele: any) => (
         <ListItem
           kind={ele.id.kind}
-          itemId={ele.id.videoId || ele.id.playlistId || ele.id.channelId}
           snippet={ele.snippet}
         />
       ))}
