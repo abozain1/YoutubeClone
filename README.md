@@ -12,3 +12,4 @@
 
 - removed .env file from gitIgnore for the test team 
 
+- someTimes youtube server refuse to give auth for certain images in the list 
